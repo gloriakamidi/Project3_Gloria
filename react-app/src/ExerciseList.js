@@ -74,7 +74,7 @@ class ExerciseList extends Component {
     return (
       <div>
         <AppNavbar />
-        <div className="container big-screen">
+        <div className="container">
           {/* <div className="border mt-3 mb-5 p-3 bg-white"> */}
           {/* <Container fluid> */}
           <Card style={{ width: "800px" }} className="mx-auto mt-5">
