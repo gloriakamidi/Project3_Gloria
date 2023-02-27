@@ -3,16 +3,15 @@ const Exercise = mongoose.model('Exercise');
 
 exports.createExercise = (req, res) => {
     const exercise = new Exercise({
-        day: req.body.day,
-        text: req.body.text,
-        note: req.body.note,
-        done: req.body.done,
+      exercisename: req.body.exercisename,
+      minutes: req.body.minutes,
+      priority: req.body.priority,
     });
 
     //Save a new Exercise in MongoDB
 
     exercise.save().then(data => {
-        res.status(200).jsom(data);
+        res.status(200).json(data);
     }).catch(err => {
         res.status(500).json({
             message: "Fail!",
@@ -24,10 +23,10 @@ exports.createExercise = (req, res) => {
 exports.getExercise = (req, res) => {
   Exercise.findById(req.params.id)
     .select("-__v")
-    .then((exercise) => {
+    .then(exercise => {
       res.status(200).json(exercise);
     })
-    .catch((err) => {
+    .catch(err => {
       if (err.kind === "ObjectId") {
         return res.status(404).send({
           message: "Exercise not found with id" + req.params.id,
@@ -47,7 +46,7 @@ exports.exercises = (req, res) => {
     .then((exerciseInfos) => {
       res.status(200).json(exerciseInfos);
     })
-    .catch((error) => {
+    .catch(error => {
       //log on console
       console.log(error);
 
@@ -61,7 +60,7 @@ exports.exercises = (req, res) => {
 exports.deleteExercise = (req, res) => {
   Exercise.findByIdAndRemove(req.params.id)
     .select("-__v-_id")
-    .then((exercise) => {
+    .then(exercise => {
       if (!exercise) {
         res.status(404).json({
           message: "No exercise found with id = " + req.params.id,
@@ -70,7 +69,7 @@ exports.deleteExercise = (req, res) => {
       }
       res.status(200).json({});
     })
-    .catch((err) => {
+    .catch(err => {
       return res.status(500).send({
         message: "Error -> Can't delete exercise with id = " + req.params.id,
         error: err.message,
@@ -80,19 +79,17 @@ exports.deleteExercise = (req, res) => {
 
 exports.updateExercise = (req, res) => {
   //Find exercise and update it
-  E.findByIdAndUpdate(
+  Exercise.findByIdAndUpdate(
     req.body._id,
     {
-      day: req.body.day,
-      text: req.body.text,
-      note: req.body.note,
-      done: req.body.done,
+      exercisename: req.body.exercisename,
+      minutes: req.body.minutes,
+      priority: req.body.priority,
     },
     { new: false }
-  )
-    .select("-__v")
-    .then((exercise) => {
-      if (!exercise) {
+  ).select('-__v')
+  .then(exercise => {
+      if(!exercise) {
         return res.status(404).send({
           message:
             "Error -> Can't update an exercise with id = " + req.params.id,
@@ -100,8 +97,7 @@ exports.updateExercise = (req, res) => {
         });
       }
       res.status(200).json(exercise);
-    })
-    .catch((err) => {
+    }).catch(err => {
       return res.status(500).send({
         message: "Error -> Can't update an exercise with id = " + req.params.id,
         error: err.message,

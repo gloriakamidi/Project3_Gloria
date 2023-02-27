@@ -1,5 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Babylonica&family=La+Belle+Aurore&family=Poppins:wght@100;200;300;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Babylonica&family=La+Belle+Aurore&family=Poppins:wght@100;200;300;400&family=Shantell+Sans:ital,wght@1,300;1,600&display=swap');@import url('https://fonts.googleapis.com/css2?family=Babylonica&family=La+Belle+Aurore&family=Poppins:wght@100;200;300;400&family=Shantell+Sans:ital,wght@1,300;1,600&display=swap');
 .App {
   text-align: center;
+  
 }
 
 .App-logo {
@@ -12,6 +15,35 @@
     animation: App-logo-spin infinite 20s linear;
   }
 }
+
+
+@media all and (max-width:575px) {
+
+   .tr {
+    flex-direction: column;
+      width: 90%;
+   }
+   .card {
+    flex-direction: column;
+      width: 90%;
+   }
+}
+
+/* For screen sizes large and under */
+@media all and (max-width:1199px) {
+   .mt-3{ /* To expand the button to full width in hamburger menu mode */
+      width: 95%; 
+      display:block;
+      margin: 0 auto; 
+   }
+}
+
+/* X-Large devices (large desktops, 1200px and up) */
+@media all and (min-width:1200px) {
+   
+}
+
+
 
 .App-header {
   background-color: #282c34;
@@ -35,4 +67,97 @@
   to {
     transform: rotate(360deg);
   }
+}
+.card-text form {
+  width: 250px;
+  font-family: "Shantell Sans";
+  font-weight: bold;
+}
+
+.weather-icon {
+  width: 100px;
+  /* position: left; */
+}
+
+.container .card {
+  width: 30em;
+  /* background-color: rgb(212, 194, 171); */
+  font-family: "Shantell Sans";
+  /* font-weight: bold; */
+}
+
+.footer {
+  background: #fff;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  text-align: center;
+  right: 0;
+  color: #f4f3f6;
+}
+h2{
+  text-align: center;
+  font-family: "Shantell Sans";
+  font-weight: bold;
+}
+h3.w{
+  font-family: "Shantell Sans";
+  font-weight: bold;
+}
+
+thead{
+  font-family: "Shantell Sans";
+  /* color: #d1b8d4; */
+
+}
+.navbar-dark{
+    background-image: linear-gradient(109.6deg, rgb(36, 45, 57) 11.2%, rgb(16, 37, 60) 51.2%, rgb(0, 0, 0) 98.6% ) ;
+}
+/* .add {
+  font-family: "Shantell Sans";
+} */
+
+/* media */
+.big-screen {
+max-width: 300px
+}
+.big-screen p {
+  padding-top: 2%;
+}
+.desktop {
+  width: 400px;
+  height: 100px;
+  background: #b097d8;
+  margin: 0 auto;
+}
+.desktop p {
+  padding-top: 2%;
+}
+
+.laptop {
+    width: 500px;
+    height: 100px;
+    background: #9674cb;
+    margin: 0 auto;
+  }
+
+.laptop p {
+  padding-top: 2%;  
+}
+
+.tablet-mobile {
+    width: 300px;
+    height: 100px;
+    background: #cab9e5;
+    margin: 0 auto;
+}
+.tablet-mobile p {
+    padding-top: 2%;
+}
+.mobile {
+    width: 80px;
+    height: 80px;
+    margin: 0% auto;
+    border-radius: 50%;
+    box-shadow: 15px 15px 0 0 #e4dcf2;
 }
