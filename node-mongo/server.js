@@ -1,11 +1,26 @@
 const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
-app.use(bodyParser.json());
+// require("dotenv").config();
+// //for login
+// const cors = require('cors');
+const jwt = require('jsonwebtoken');
+// const utils = require
+
 require("./app/models/exercise.model.js");
 
+
+app.use(bodyParser.json());
+
+
+
+
+ 
+
+// require("./app/models/exercise.model.js");
+
 //Configure the database
-require("dotenv").config();
+// require("dotenv").config();
 const mongoose = require("mongoose");
 
 //Connecting to the database

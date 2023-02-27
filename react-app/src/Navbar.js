@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHome, faDumbbell, faUser  } from "@fortawesome/free-solid-svg-icons";
 import "bootstrap/dist/css/bootstrap.min.css";
 // import "./styles/Navbar.css"
+import { useAuth0} from '@auth0/auth0-react'
 
 export default class AppNavbar extends Component {
   render() {
