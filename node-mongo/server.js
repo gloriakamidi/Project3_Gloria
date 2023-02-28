@@ -1,4 +1,7 @@
 const express = require("express");
+const dotenv = require("dotenv");
+const path = require("path");
+const cors = require("cors");
 const app = express();
 const bodyParser = require("body-parser");
 // require("dotenv").config();
@@ -7,13 +10,14 @@ const bodyParser = require("body-parser");
 const jwt = require('jsonwebtoken');
 // const utils = require
 
+dotenv.config();
 require("./app/models/exercise.model.js");
 
 
 app.use(bodyParser.json());
 
 
-
+app.use(cors());  
 
  
 
@@ -36,6 +40,12 @@ mongoose.connection
   .on("error", (err) => {
     console.log(`Connection error: ${err.message}`);
   });
+
+//for login etc
+
+// app.use("/users", require("./app/routes/auth.js"));
+
+require("./models/Registration");
 
 require("./app/routes/exercise.router.js")(app);
 //Create a Server
